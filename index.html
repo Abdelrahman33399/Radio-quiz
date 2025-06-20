@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبر معلوماتك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="logo">Æ</div>
+
+    <div class="start-screen" id="startScreen">
+        <h1 class="neon-text">اختبر معلوماتك</h1>
+        <p style="color: #C0C0C0;">استعد لخوض تحدي ممتع ومثير!</p>
+        <button class="start-button" id="startButton"><span>ابدأ الاختبار</span></button>
+    </div>
+
+    <div class="quiz-container" id="quizContainer">
+        <p class="question-number">السؤال <span id="currentQuestionNumber">1</span> من <span id="totalQuestions">0</span></p>
+        <h2 id="questionText"></h2>
+        <div class="options-container" id="optionsContainer">
+            </div>
+        <div class="explanation" id="explanation">
+            <p>التفسير: <span id="explanationText"></span></p>
+        </div>
+        <div class="navigation-buttons">
+            <button id="nextButton" style="display: none;">التالي</button>
+        </div>
+    </div>
+
+    <div class="results-container" id="resultsContainer">
+        <h2 class="neon-text">النتائج</h2>
+        <p class="score-display">درجتك: <span id="scoreDisplay">0</span> / <span id="maxScoreDisplay">0</span></p>
+        <div class="review-questions" id="reviewQuestions">
+            </div>
+        <div class="whatsapp-section">
+            <label for="whatsappNumber">أدخل رقم الواتساب لإرسال النتائج (+رمز الدولة):</label>
+            <input type="tel" id="whatsappNumber" placeholder="مثال: +201234567890" dir="ltr">
+            <button id="sendWhatsapp">إرسال النتائج عبر واتساب</button>
+        </div>
+        <button class="start-button" id="restartButton" style="margin-top: 20px;"><span>إعادة الاختبار</span></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

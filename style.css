@@ -1,0 +1,391 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    color: #E0E0E0; /* Light gray for text */
+    background: linear-gradient(135deg, #2A0050, #0F0033); /* Deep purple to very dark blue */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Neon glow effect for elements */
+.neon-text {
+    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF; /* Cyan Neon */
+}
+.neon-button {
+    box-shadow: 0 0 5px #FF00FF, 0 0 10px #FF00FF, 0 0 15px #FF00FF; /* Magenta Neon */
+}
+.neon-border {
+    border: 2px solid #00FF00; /* Green Neon */
+    box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+}
+
+/* Logo Styling */
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4em;
+    font-weight: 700;
+    color: #00FFFF; /* Cyan Neon */
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+/* Quiz Container */
+.quiz-container {
+    background: linear-gradient(180deg, #1A0033, #0A0020); /* Darker gradient for container */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.3); /* Cyan shadow */
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    display: none; /* Hidden by default, shown after start */
+    position: relative;
+    animation: fadeIn 1s forwards;
+    border: 2px solid #8A2BE2; /* BlueViolet border */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.start-screen {
+    background: linear-gradient(180deg, #1A0033, #0A0020);
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.3);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    animation: fadeIn 1s forwards;
+    border: 2px solid #8A2BE2;
+}
+
+.start-screen h1 {
+    color: #00FFFF; /* Cyan Neon */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #00FFFF, 0 0 15px #00FFFF;
+}
+
+.start-button {
+    background: linear-gradient(45deg, #00BFFF, #8A2BE2); /* Deep Sky Blue to BlueViolet */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); /* BlueViolet shadow */
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.9), 0 0 40px rgba(0, 191, 255, 0.7);
+}
+
+.start-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-out;
+    z-index: 0;
+}
+
+.start-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.start-button span {
+    position: relative;
+    z-index: 1;
+}
+
+
+h2 {
+    color: #9932CC; /* Dark Orchid */
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #9932CC;
+}
+
+.question-number {
+    font-size: 1.1em;
+    color: #ADD8E6; /* Light Blue */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.options-container button {
+    background: linear-gradient(90deg, #4B0082, #6A5ACD); /* Indigo to Slate Blue */
+    color: white;
+    border: 2px solid #8A2BE2; /* BlueViolet */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease, box-shadow 0.2s ease-in-out;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+}
+
+.options-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.7); /* BlueViolet hover shadow */
+    background: linear-gradient(90deg, #6A5ACD, #4B0082); /* Reversed gradient on hover */
+}
+
+.options-container button.correct {
+    background: linear-gradient(90deg, #228B22, #3CB371); /* Forest Green to Medium Sea Green */
+    border-color: #00FF00; /* Green Neon */
+    box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00;
+    animation: glowGreen 0.8s ease-in-out forwards;
+}
+
+.options-container button.incorrect {
+    background: linear-gradient(90deg, #B22222, #DC143C); /* Firebrick to Crimson */
+    border-color: #FF0000; /* Red Neon */
+    box-shadow: 0 0 15px #FF0000, 0 0 25px #FF0000;
+    animation: glowRed 0.8s ease-in-out forwards;
+}
+
+@keyframes glowGreen {
+    0% { transform: scale(1); box-shadow: 0 0 5px #00FF00; }
+    50% { transform: scale(1.02); box-shadow: 0 0 25px #00FF00, 0 0 40px #00FF00; }
+    100% { transform: scale(1); box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
+}
+
+@keyframes glowRed {
+    0% { transform: scale(1); box-shadow: 0 0 5px #FF0000; }
+    50% { transform: scale(1.02); box-shadow: 0 0 25px #FF0000, 0 0 40px #FF0000; }
+    100% { transform: scale(1); box-shadow: 0 0 15px #FF0000, 0 0 25px #FF0000; }
+}
+
+.explanation {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #8A2BE2;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #DDA0DD; /* Plum */
+    font-size: 1em;
+    text-align: right;
+    display: none; /* Hidden by default */
+}
+
+.navigation-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-buttons button {
+    background: linear-gradient(45deg, #00BFFF, #8A2BE2); /* Deep Sky Blue to BlueViolet */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.navigation-buttons button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.9);
+}
+
+/* Results Screen */
+.results-container {
+    background: linear-gradient(180deg, #1A0033, #0A0020);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.3);
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    display: none; /* Hidden by default */
+    animation: fadeIn 1s forwards;
+    border: 2px solid #8A2BE2;
+}
+
+.results-container h2 {
+    color: #00FFFF; /* Cyan Neon */
+    text-shadow: 0 0 8px #00FFFF, 0 0 15px #00FFFF;
+}
+
+.score-display {
+    font-size: 2.5em;
+    color: #98FB98; /* Pale Green */
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px #98FB98;
+}
+
+.review-questions {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #6A5ACD;
+    margin-bottom: 25px;
+    text-align: right;
+}
+
+.review-question-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.review-question-item:last-child {
+    border-bottom: none;
+}
+
+.review-question-item p {
+    margin: 5px 0;
+    color: #E0E0E0;
+}
+
+.review-question-item .question-text {
+    font-weight: bold;
+    color: #ADD8E6; /* Light Blue */
+}
+
+.review-question-item .user-answer {
+    color: #DDA0DD; /* Plum */
+}
+
+.review-question-item .correct-answer {
+    color: #98FB98; /* Pale Green */
+    font-weight: bold;
+}
+
+.review-question-item .explanation-text {
+    font-style: italic;
+    color: #C0C0C0; /* Silver */
+    margin-top: 5px;
+}
+
+.whatsapp-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #6A5ACD;
+}
+
+.whatsapp-section label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ADD8E6;
+    font-size: 1.1em;
+}
+
+.whatsapp-section input[type="tel"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #8A2BE2;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #E0E0E0;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+.whatsapp-section input[type="tel"]::placeholder {
+    color: #A9A9A9;
+}
+
+.whatsapp-section button {
+    background: linear-gradient(45deg, #25D366, #128C7E); /* WhatsApp Green shades */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+}
+
+.whatsapp-section button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 3em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .options-container button {
+        font-size: 1em;
+        padding: 12px;
+    }
+    .navigation-buttons button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .start-screen h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 2.5em;
+    }
+    .quiz-container, .start-screen, .results-container {
+        padding: 20px;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    .options-container button {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+    .start-button, .whatsapp-section button {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+    .score-display {
+        font-size: 2em;
+    }
+}
